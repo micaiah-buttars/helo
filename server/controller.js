@@ -56,5 +56,16 @@ module.exports = {
 
         res.status(200).send(post[0])
         
+    },
+    post: async (req, res) => {
+        const {id} = req.params
+        const {title, img, content} = req.body
+        const db = req.app.get('db');
+
+        await db.new_post(title, img, content, id)
+        
+
+        res.status(200).send('yee')
+        
     }
 }

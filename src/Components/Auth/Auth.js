@@ -21,7 +21,7 @@ class Auth extends Component {
       })
   }
   login() {
-    axios.post('/auth/login', this.state)
+    axios.put('/auth/login', this.state)
       .then(res => {
         this.props.synchronize(res.data);
         this.props.history.push('/dashboard');
