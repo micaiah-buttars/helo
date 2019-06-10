@@ -19,3 +19,5 @@ massive(CONNECTION_STRING).then(db => {
 
 app.post('/auth/register', controller.register)
 app.post('/auth/login', controller.login)
+
+app.get('/posts/:userid', controller.getPosts)

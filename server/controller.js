@@ -33,4 +33,20 @@ module.exports = {
         // } 
         res.status(200).send(user[0])
     },
+    getPosts: async (req, res) => {
+        const {myPosts, search} = req.query
+        const {userid} = req.params
+        const db = req.app.get('db');
+        let posts = await db.get_posts()
+
+        if(!myPosts && !search){
+            posts = posts.filter(post => post.author_id != userid)
+        } else if(myPosts && search){
+            posts = posts.filter(post => post.title.includes(`${search}`))
+        } else if(!myPosts && search){
+            posts = posts.filter(post => post.author_id != userid).filter(post => post.title.includes(`${search}`))
+        } 
+
+        res.status(200).send(posts)
+    }
 }

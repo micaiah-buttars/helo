@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom'
 import axios from 'axios';
+import './Auth.css'
 
 import { synchronize } from './../../ducks/reducer';
 
@@ -38,8 +39,8 @@ class Auth extends Component {
   }
   render() {
     return (
-      <div >
-        <div >
+      <div className='authBody'>
+        <div className='authForm'>
           <h1 >Helo</h1>
           <div >
             <p>Username:</p>
