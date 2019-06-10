@@ -1,16 +1,21 @@
 const initialState = {
     username: '',
-    id: 0,
     profile_pic: ''
 }
 
 const SYNCHRONIZE = 'SYNCHRONIZE'
+const DESYNC = 'DESYNC'
 
 export function synchronize(user){
-    console.log(user)
     return {
         type: SYNCHRONIZE,
         payload: user
+    }
+}
+export function desync(){
+    return {
+        type: DESYNC,
+        payload: {}
     }
 }
 
@@ -18,8 +23,10 @@ export function synchronize(user){
 export default function reducer(state = initialState, action){
     switch(action.type) {
         case SYNCHRONIZE:
-            const {username, id, profile_pic} = action.payload
-            return {...state, username, id, profile_pic}
+            const {username, profile_pic} = action.payload
+            return {...state, username, profile_pic}
+        case DESYNC:
+            return {...initialState}
         default:
             return state
     }

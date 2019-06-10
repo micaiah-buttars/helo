@@ -1,8 +1,7 @@
 import React, {Component} from 'react'
-import { connect } from 'react-redux';
 import axios from 'axios'
 
-class Form extends Component {
+export default class Form extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -12,7 +11,7 @@ class Form extends Component {
         }
     }
     handlePost = () => {
-        axios.post(`/new/${this.props.id}`, this.state)
+        axios.post('/new', this.state)
         .then(
             this.props.history.push('/dashboard')
         )
@@ -21,7 +20,7 @@ class Form extends Component {
     }
     render(){
         const {title, img, content} = this.state
-        console.log(this.props)
+        
         return(
             <div>
                 <label>
@@ -51,8 +50,3 @@ class Form extends Component {
         )
     }
 }
-const mapState = (reduxState) => {
-    return reduxState
-  }
-  
-  export default connect(mapState)(Form);

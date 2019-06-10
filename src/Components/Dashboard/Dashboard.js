@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import { connect } from 'react-redux';
 import {Link} from 'react-router-dom'
 
-class Dashboard extends Component {
+export default class Dashboard extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -16,7 +15,7 @@ class Dashboard extends Component {
     
     getPosts() {
         let { search, myPosts } = this.state;
-        let url = `/posts/${this.props.id}`;
+        let url = '/posts';
         if (myPosts && !search) {
           url += '?myPosts=true';
         } else if (!myPosts && search) {
@@ -72,9 +71,3 @@ class Dashboard extends Component {
         )
     }
 }
-
-const mapState = (reduxState) => {
-  return reduxState
-}
-
-export default connect(mapState)(Dashboard);
