@@ -5,9 +5,6 @@ import {connect} from 'react-redux'
 import './Nav.css'
 
 class Nav extends Component {
-    constructor(props){
-        super(props)
-    }
     
     render(){
         if(this.props.location.pathname !== '/') {

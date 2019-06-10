@@ -48,5 +48,13 @@ module.exports = {
         } 
 
         res.status(200).send(posts)
+    },
+    getPost: async (req, res) => {
+        const {post_id} = req.params
+        const db = req.app.get('db');
+        let post = await db.get_post(post_id)
+
+        res.status(200).send(post[0])
+        
     }
 }

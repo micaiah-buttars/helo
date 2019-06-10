@@ -5,13 +5,12 @@ import Auth from './Components/Auth/Auth'
 import Dashboard from './Components/Dashboard/Dashboard'
 import Form from './Components/Form/Form'
 import Post from './Components/Post/Post'
-import Nav from './Components/Nav/Nav'
 
 export default (
     <Switch>
         <Route component={Auth} exact path='/'/>
         <Route component={Dashboard} path='/dashboard'/>
-        <Route component={Post} path='/post/:postid'/>
+        <Route component={Post} path='/post/:post_id'/>
         <Route component={Form} path='/new'/>
     </Switch>
 )

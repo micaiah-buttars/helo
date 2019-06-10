@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom'
 import axios from 'axios';
 import './Auth.css'
 
@@ -24,7 +23,6 @@ class Auth extends Component {
   login() {
     axios.post('/auth/login', this.state)
       .then(res => {
-        console.log(1111111, res.data)
         this.props.synchronize(res.data);
         this.props.history.push('/dashboard');
       })

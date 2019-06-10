@@ -21,3 +21,4 @@ app.post('/auth/register', controller.register)
 app.post('/auth/login', controller.login)
 
 app.get('/posts/:userid', controller.getPosts)
+app.get('/post/:post_id', controller.getPost)
